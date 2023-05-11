@@ -1,1 +1,6 @@
 <h1></h1>
+
+<form action="<%= session_url %>" method="POST">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <button>Login</button>
+</form> 
