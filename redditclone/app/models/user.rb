@@ -14,7 +14,10 @@ class User < ApplicationRecord
     validates :username, :session_token, uniqueness: true
     validates :password, length: {minimum: 4}, allow_nil: true
 
+    has_many :subs, foreign_key: :moderator_id, class_name: :Sub, dependent: :destroy, inverse_of: :moderator
+
     before_validation :ensure_session_token
+
 
     attr_reader :password
 
