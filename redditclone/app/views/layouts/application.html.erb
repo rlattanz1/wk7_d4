@@ -25,11 +25,13 @@
         <input type="hidden" name="_method" value="DELETE">
         <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
         <button>Sign Out</button>
-      </form> 
+      </form>
     <% else %>
       <a href="<%= new_session_url %>">Link to Login Page</a>
+      <br>
+      <a href="<%= new_user_url %>">Link to Sign Up Page</a>
     <% end %>
-    
+
     <%= yield %>
   </body>
 </html>

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
         @user = User.find_by(id: params[:id])
         render :show
     end
-    
+
     def edit
         @user = User.find_by(id: params[:id])
         render :edit
@@ -21,7 +21,7 @@ class UsersController < ApplicationController
         if @user.update(user_params)
             redirect_to users_url
         else
-            flash.now[:errors] = @user.error.full_messages
+            flash.now[:errors] = @user.errors.full_messages
             render :edit
         end
     end
@@ -37,7 +37,7 @@ class UsersController < ApplicationController
             login!(@user)
             redirect_to users_url
         else
-            flash.now[:errors] = @user.error.full_messages
+            flash.now[:errors] = @user.errors.full_messages
             render :new
         end
     end
